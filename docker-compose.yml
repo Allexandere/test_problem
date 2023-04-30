@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  db:
+    image: "postgres:alpine"
+    container_name: db
+    volumes:
+      - ipv6checker-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1
+
+  back:
+    build: .
+    image: ipv6checker
+    container_name: ipv6checker
+    ports:
+      - "8080:8080"
+    links:
+      - db
+    depends_on:
+      - db
+
+volumes:
+  ipv6checker-data:
