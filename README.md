@@ -1,0 +1,1 @@
+[![Maven build](https://github.com/Allexandere/test_problem/actions/workflows/maven-package.yml/badge.svg)](https://github.com/Allexandere/test_problem/actions/workflows/maven-package.yml)
